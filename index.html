@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>健康登记</title>
+  <link rel='stylesheet' href='./css/index.css?t=1610976399898'>
+  <link rel="stylesheet" href="./css/font_1629426_a0wa7qco4b8.css">
+</head>
+<body>
+
+  <div class="page" id='app'>
+    <div class="form" v-show='showForm' >
+      <div class="title">地点信息</div>
+      <ul>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">页面标题</div>
+              <div class="item-input">
+                <div class="item-input">
+                  <input type="text" v-model="form.docTitle">
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">站点名</div>
+              <div class="item-input">
+                <input type="text" v-model="form.stationName">
+
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">车牌号</div>
+              <div class="item-input">
+                <input type="text" v-model="form.plateNum">
+
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="confirm" @click="confirm" >确定</div>
+      <div class="title">历史地点</div>
+      <div class="site-list">
+        <div class="item" v-for="(item,i) in sites" >
+          <div class="site-name" @click="handleEnter(item)">{{item.stationName}}</div>
+          <div class="delete" @click="handleDelete(i)">删除</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="result" v-show="!showForm" @click="showForm=true" >
+      <div class="finish-header specialType-success">
+        <p class="complete-info">欢迎乘坐!</p>
+        <div >{{submitTime}}</div>
+        <div class="warning-tips"></div>
+        <i class="iconfont finish-icon iconsucceed" id="complete-icon"></i>
+      </div>
+      <div class="content-block">
+        <div class="specialType-info" v-show="form.plateNum">车牌号<span>{{form.plateNum}}</span></div>
+        <div  class="specialType-info" v-show="form.stationName">当前站名<span>{{form.stationName}}</span></div>
+        <div  class="specialType-info" v-show="form.name">扫码人<span>{{form.name}}</span></div>
+
+        <div class="specialType-info">来郑日期<span>{{form.reachDate}}</span></div>
+        <p class="showGuards">请将此信息页出示给相关工作人员</p>
+      </div>
+    </div>
+  </div>
+
+  <script type='text/javascript' src='./js/vue.js' charset='utf-8'></script>
+  <script type='text/javascript' src='./js/water.js' charset='utf-8'></script>
+  <script >
+
+    Vue.config.productionTip = false
+    var vm = new Vue({
+      el: '#app',
+      computed:{
+        submitTime(){
+          let date = new Date()
+          let month = date.getMonth()+1
+          let day = date.getDate()
+          let hh = date.getHours()
+          let mm = date.getMinutes()
+
+          month =month<10? ('0'+month):month
+          day = day<10?('0' + day):day
+          hh = hh<10?('0' + hh):hh
+          mm = mm<10?('0' + mm):mm
+
+          return date.getFullYear()+'-'+month+'-'+day+' '+hh+':'+mm
+        }
+      },
+      data: function () {
+        return {
+          showForm:true,//表单页和结果页的显示标识
+          form:{
+            docTitle:'',
+            plateNum:'',//车牌号
+            stationName:'',//站名
+            name:'',//扫码人
+            reachDate:'2020-03-23'//来郑日期
+          },
+          sites:[]
+
+        }
+      },
+      methods: {
+        confirm(){
+          // 保存输入记录
+          this.sites.push({...this.form})
+          localStorage.setItem('sites',JSON.stringify(this.sites))
+
+          document.title = this.form.docTitle
+          this.showForm = false
+        },
+        handleEnter(item){
+          this.form = {...item}
+          document.title = this.form.docTitle
+          this.showForm = false
+        },
+        handleDelete(i){
+
+          this.sites.splice(i,1)
+          localStorage.setItem('sites',JSON.stringify(this.sites))
+
+        }
+      },
+      created(){
+        this.sites = JSON.parse(localStorage.getItem('sites'))||[]
+      }
+    })
+  </script>
+
+</body>
+</html>
