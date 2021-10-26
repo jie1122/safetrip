@@ -102,6 +102,9 @@ body {
 .form .footer .add {
   background-color: #85ce61;
 }
+.form .site-list {
+  font-size: 0.7rem;
+}
 .form .site-list .item {
   display: flex;
   justify-content: space-between;
