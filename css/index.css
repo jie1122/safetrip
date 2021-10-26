@@ -60,7 +60,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   vertical-align: top;
-  width: 35%;
+  width: 25%;
   flex-shrink: 0;
   margin: 4px 0;
 }
@@ -123,6 +123,8 @@ body {
 }
 .result .finish-header .complete-info {
   font-weight: bold;
+  overflow-wrap: break-word;
+  margin: 20px 0;
 }
 .result .finish-header .warning-tips {
   font-size: 18px;

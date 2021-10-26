@@ -29,7 +29,19 @@
         <li>
           <div class="item-content">
             <div class="item-inner">
-              <div class="item-title">站点名</div>
+              <div class="item-title">欢迎语</div>
+              <div class="item-input">
+                <div class="item-input">
+                  <input type="text" v-model="form.welcom">
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">车站名</div>
               <div class="item-input">
                 <input type="text" v-model="form.stationName">
 
@@ -53,7 +65,7 @@
       <div class="title">历史地点</div>
       <div class="site-list">
         <div class="item" v-for="(item,i) in sites" >
-          <div class="site-name" @click="handleEnter(item)">{{item.stationName}}</div>
+          <div class="site-name" @click="handleEnter(item)">{{item.docTitle+item.stationName}}</div>
           <div class="delete" @click="handleDelete(i)">删除</div>
         </div>
       </div>
@@ -61,7 +73,7 @@
     </div>
     <div class="result" v-show="!showForm" @click="showForm=true" >
       <div class="finish-header specialType-success">
-        <p class="complete-info">欢迎乘坐!</p>
+        <div class="complete-info">{{form.welcom}}!</div>
         <div >{{submitTime}}</div>
         <div class="warning-tips"></div>
         <i class="iconfont finish-icon iconsucceed" id="complete-icon"></i>
@@ -106,6 +118,7 @@
           showForm:true,//表单页和结果页的显示标识
           form:{
             docTitle:'',
+            welcom:'',
             plateNum:'',//车牌号
             stationName:'',//站名
             name:'',//扫码人
