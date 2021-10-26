@@ -85,13 +85,22 @@ body {
   height: 2.15rem;
   outline: 0;
 }
-.form .confirm {
-  background-color: #409eff;
+.form .footer {
+  display: flex;
+}
+.form .footer div {
+  margin: 15px 15px;
+  flex: 1;
   padding: 6px 14px;
   color: #fff;
   border-radius: 5px;
-  margin: 15px 15px;
   text-align: center;
+}
+.form .footer .alter {
+  background-color: #409eff;
+}
+.form .footer .add {
+  background-color: #85ce61;
 }
 .form .site-list {
   margin: 0 15px;
@@ -104,8 +113,13 @@ body {
 }
 .form .site-list .item .site-name {
   flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .form .site-list .item .delete {
+  width: 64px;
+  flex-shrink: 0;
   color: #f56c6c;
   padding: 0 15px;
 }

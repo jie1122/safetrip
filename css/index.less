@@ -91,15 +91,28 @@ body{
     }
 
   }
-  .confirm{
-    background-color: #409eff;
-    padding: 6px 14px;
-    color: #fff;
-    border-radius: 5px;
-    margin: 15px 15px;
-    text-align: center;
+  .footer{
+    display: flex;
+    div{
+      margin: 15px 15px;
 
+      flex:1;
+      padding: 6px 14px;
+      color: #fff;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .alter{
+      background-color: #409eff;
+
+    }
+    .add{
+      background-color: #85ce61;
+
+
+    }
   }
+
   .site-list{
     margin: 0 15px;
     .item{
@@ -107,11 +120,16 @@ body{
       justify-content: space-between;
       border-bottom: 1px solid #ddd;
       line-height: 40px;
-
       .site-name{
-        flex:1;
+        flex: 1;
+        overflow: hidden;
+
+        white-space: nowrap;
+        text-overflow:ellipsis
       }
       .delete{
+        width: 64px;
+        flex-shrink: 0;
         color: #f56c6c;
         padding: 0 15px;
       }

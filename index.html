@@ -60,12 +60,26 @@
             </div>
           </div>
         </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">来郑日期</div>
+              <div class="item-input">
+                <input type="text" v-model="form.reachDate">
+
+              </div>
+            </div>
+          </div>
+        </li>
       </ul>
-      <div class="confirm" @click="confirm" >确定</div>
+      <div class="footer">
+        <div class="add" @click="handleAdd" >添加</div>
+        <div class="alter" @click="handleAlter" >进入</div>
+      </div>
       <div class="title">历史地点</div>
       <div class="site-list">
         <div class="item" v-for="(item,i) in sites" >
-          <div class="site-name" @click="handleEnter(item)">{{item.docTitle+'-'+item.stationName}}</div>
+          <div class="site-name" @click="handleSelect(item,i)">{{item.docTitle+'-'+item.stationName}}</div>
           <div class="delete" @click="handleDelete(i)">删除</div>
         </div>
       </div>
@@ -124,23 +138,29 @@
             name:'',//扫码人
             reachDate:'2020-03-23'//来郑日期
           },
-          sites:[]
-
+          sites:[],
+          currentItem:0
         }
       },
       methods: {
-        confirm(){
+        handleAdd(){
           // 保存输入记录
           this.sites.push({...this.form})
           localStorage.setItem('sites',JSON.stringify(this.sites))
 
-          document.title = this.form.docTitle
-          this.showForm = false
         },
-        handleEnter(item){
-          this.form = {...item}
+        handleAlter(){
+
+          this.sites[this.currentItem] = {...this.form}
+
+          localStorage.setItem('sites',JSON.stringify(this.sites))
           document.title = this.form.docTitle
           this.showForm = false
+
+        },
+        handleSelect(item,i){
+          this.form = {...item}
+          this.currentItem = i
         },
         handleDelete(i){
 
@@ -151,6 +171,9 @@
       },
       created(){
         this.sites = JSON.parse(localStorage.getItem('sites'))||[]
+        if (this.sites.length>0) {
+          this.form = {...this.sites[0]}
+        }
       }
     })
   </script>
