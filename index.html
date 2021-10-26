@@ -176,6 +176,7 @@
       created(){
         this.sites = JSON.parse(localStorage.getItem('sites'))||[]
         if (this.sites.length>0) {
+          this.sites[0].select = true
           this.form = {...this.sites[0]}
         }
       }
