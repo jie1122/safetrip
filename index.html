@@ -152,19 +152,21 @@
         handleAlter(){
 
           this.sites[this.currentItem] = {...this.form}
-
+          console.log(this.form)
           localStorage.setItem('sites',JSON.stringify(this.sites))
           document.title = this.form.docTitle
           this.showForm = false
 
         },
         handleSelect(item,i){
-          this.form = {...item}
-          this.currentItem = i
           this.sites.forEach(e=>{
             e.select = false
           })
           this.sites[i].select = true
+
+          this.currentItem = i
+          this.form = {...item}
+
         },
         handleDelete(i){
 
