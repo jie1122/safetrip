@@ -102,14 +102,12 @@ body {
 .form .footer .add {
   background-color: #85ce61;
 }
-.form .site-list {
-  margin: 0 15px;
-}
 .form .site-list .item {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #ddd;
   line-height: 40px;
+  padding: 0 15px;
 }
 .form .site-list .item .site-name {
   flex: 1;
@@ -122,6 +120,9 @@ body {
   flex-shrink: 0;
   color: #f56c6c;
   padding: 0 15px;
+}
+.form .site-list .select {
+  background-color: #ddd;
 }
 .result {
   /* 上半部分，绿色 */

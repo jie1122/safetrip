@@ -78,7 +78,7 @@
       </div>
       <div class="title">历史地点</div>
       <div class="site-list">
-        <div class="item" v-for="(item,i) in sites" >
+        <div :class="{item:true,select:item.select}" v-for="(item,i) in sites" >
           <div class="site-name" @click="handleSelect(item,i)">{{item.docTitle+'-'+item.stationName}}</div>
           <div class="delete" @click="handleDelete(i)">删除</div>
         </div>
@@ -161,6 +161,10 @@
         handleSelect(item,i){
           this.form = {...item}
           this.currentItem = i
+          this.sites.forEach(e=>{
+            e.select = false
+          })
+          this.sites[i].select = true
         },
         handleDelete(i){
 
