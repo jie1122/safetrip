@@ -65,7 +65,7 @@
       <div class="title">历史地点</div>
       <div class="site-list">
         <div class="item" v-for="(item,i) in sites" >
-          <div class="site-name" @click="handleEnter(item)">{{item.docTitle+item.stationName}}</div>
+          <div class="site-name" @click="handleEnter(item)">{{item.docTitle+'-'+item.stationName}}</div>
           <div class="delete" @click="handleDelete(i)">删除</div>
         </div>
       </div>
