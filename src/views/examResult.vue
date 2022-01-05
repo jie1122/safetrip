@@ -23,7 +23,7 @@
         </div>
       </div>
     </div>
-    <div class="listbox">
+    <div class="listbox" v-for="item in list">
       <div class="title">个人信息</div>
       <div class="van-cell-group van-hairline--top-bottom">
         <div class="van-cell">
@@ -40,13 +40,13 @@
         <div class="van-cell">
           <div class="van-cell__title"><span>采样时间</span></div>
           <div class="van-cell__value">
-            <span>2021-11-15 15:48:01</span>
+            <span>{{item.getTime}}</span>
           </div>
         </div>
         <div class="van-cell">
           <div class="van-cell__title"><span>检测时间</span></div>
           <div class="van-cell__value">
-            <span>2021-11-15 23:35:07</span>
+            <span>{{item.resTime}}</span>
           </div>
         </div>
       </div>
@@ -65,7 +65,33 @@
 <script>
 export default {
   data() {
-    return {}
+    return {
+      list:[
+        {
+          getTime:'2022-01-05 15:45:01',
+          resTime:'2022-01-05 22:37:07'
+        },
+        {
+          getTime:'2021-11-15 15:48:01',
+          resTime:'2021-11-15 23:35:07'
+        },
+        {
+          getTime:'2021-11-11 15:52:46',
+          resTime:'2021-11-11 20:24:34'
+        },
+        {
+          getTime:'2021-08-24 20:04:33',
+          resTime:'2021-08-25 17:04:36'
+        },
+        {
+          getTime:'2021-08-07 17:07:53',
+          resTime:'2021-08-08 10:02:43'
+        },
+      ]
+    }
+  },
+  created(){
+    document.title = '核酸检测结果查询'
   },
   methods: {},
 }
@@ -176,9 +202,10 @@ export default {
     color: #fff;
     background-color: #1989fa;
     border: 0;
-    width: 200px;
+    width: 230px;
     line-height: 42px;
     text-align: center;
+    font-size: 14px;
   }
 }
 
