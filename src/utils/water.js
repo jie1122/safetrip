@@ -22,8 +22,8 @@ function watermark(t1,t2,t3){
       
   var _temp = document.createDocumentFragment();
   var _waterDiv = document.createElement('div');
-//   _waterDiv.setAttribute("style","width: 100%; height: 100%; overflow: hidden; position: relative;") ;
-//   _waterDiv.style.cssText = "width: 100%; height: 100%; overflow: hidden; position: relative;";
+  // _waterDiv.setAttribute("style","width: 100%; height: 100%; overflow: hidden; position: relative;") ;
+  // _waterDiv.style.cssText = "width: 100%; height: 100%; overflow: hidden; position: relative;";
   for(var i = 0; i < rowNumber; i++){
       for(var j = 0; j < coumnNumber; j++){
           var x = intervalWidth*i + 20;
@@ -71,4 +71,4 @@ function watermark(t1,t2,t3){
   document.body.appendChild(_temp);
 }
 
-watermark('【郑州市新型冠状病毒', '感染的肺炎疫情防控', '领导小组办公室】');
+export default watermark
