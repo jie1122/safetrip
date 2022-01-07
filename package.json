@@ -1,5 +1,5 @@
 {
-  "name": "vite_demo",
+  "name": "safe-strip",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
@@ -7,12 +7,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "vant": "^3.4.0",
     "vue": "^3.2.25",
     "vue-router": "^4.0.12"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.0.0",
     "sass": "^1.45.2",
-    "vite": "^2.7.2"
+    "vite": "^2.7.2",
+    "vite-plugin-style-import": "^1.2.0"
   }
 }

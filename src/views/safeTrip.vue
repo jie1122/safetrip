@@ -1,7 +1,4 @@
-<script setup>
-  import water from './../utils/water'
-  water('【郑州市新型冠状病毒', '感染的肺炎疫情防控', '领导小组办公室】')
-</script>
+
 <template>
     <div class="result"  >
       <div class="finish-header specialType-success">
@@ -21,6 +18,7 @@
     </div>
 </template>
 <script>
+  import {watermark , removeMark} from './../utils/water'
 
 export default {
   computed:{
@@ -46,7 +44,12 @@ export default {
   },
   created(){
     this.form = this.$route.query
+    watermark('【郑州市新型冠状病毒', '感染的肺炎疫情防控', '领导小组办公室】')
 
+  },
+  unmounted() {
+
+    removeMark()
   },
   methods:{
   },

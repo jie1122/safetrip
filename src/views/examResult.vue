@@ -1,6 +1,7 @@
 <template>
 
   <div class="result-wrap">
+
     <div class="header">
       <img src="./../assets/images/virus-banner.361329c1.jpg" alt="" />
     </div>
@@ -10,14 +11,14 @@
           <div class="van-cell__title van-field__label">
             <span>姓名:</span>
           </div>
-          <div class="van-cell__value"><span style="color:#323233;">史*杰</span></div>
+          <div class="van-cell__value"><span style="color:#323233;">{{name}}</span></div>
 
         </div>
         <div class="input van-cell van-field">
           <div class="van-cell__title van-field__label">
             <span>证件号:</span>
           </div>
-          <div class="van-cell__value"><span  style="color:#323233;">**************1537</span></div>
+          <div class="van-cell__value"><span  style="color:#323233;">{{idCard}}</span></div>
 
 
         </div>
@@ -28,7 +29,7 @@
       <div class="van-cell-group van-hairline--top-bottom">
         <div class="van-cell">
           <div class="van-cell__title"><span>姓名</span></div>
-          <div class="van-cell__value"><span>史*杰</span></div>
+          <div class="van-cell__value"><span>{{name}}</span></div>
         </div>
       </div>
       <div class="title">检测结果信息</div>
@@ -87,11 +88,30 @@ export default {
           getTime:'2021-08-07 17:07:53',
           resTime:'2021-08-08 10:02:43'
         },
-      ]
+      ],
+    }
+  },
+  computed:{
+    name(){
+      let name = this.$route.query.name
+      name=name.split('')
+      name[1]='*'
+      name = name.join('')
+      return name 
+    },
+    idCard(){
+      return  '**************'+this.$route.query.idCard
     }
   },
   created(){
     document.title = '核酸检测结果查询'
+    let query = this.$route.query
+    if (query.getTime&&query.resTime) {
+      this.list.unshift({
+      ...this.$route.query
+      })
+    }
+
   },
   methods: {},
 }

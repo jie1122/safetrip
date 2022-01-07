@@ -1,77 +1,31 @@
 
 <template>
+  <van-nav-bar title="地点信息" />
+
   <div class="form" >
-    <div class="title">地点信息</div>
-    <ul>
-      <li>
-        <div class="item-content">
-          <div class="item-inner">
-            <div class="item-title">页面标题</div>
-            <div class="item-input">
-              <div class="item-input">
-                <input type="text" v-model="form.docTitle">
-              </div>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="item-content">
-          <div class="item-inner">
-            <div class="item-title">欢迎语</div>
-            <div class="item-input">
-              <div class="item-input">
-                <input type="text" v-model="form.welcom">
-              </div>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="item-content">
-          <div class="item-inner">
-            <div class="item-title">车站名</div>
-            <div class="item-input">
-              <input type="text" v-model="form.stationName">
 
-            </div>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="item-content">
-          <div class="item-inner">
-            <div class="item-title">车牌号</div>
-            <div class="item-input">
-              <input type="text" v-model="form.plateNum">
+    <van-cell-group title="编辑地点">
+      <van-field v-model="form.docTitle" label="页面标题" placeholder="" />
+      <van-field v-model="form.welcom" label="欢迎语" placeholder="" />
+      <van-field v-model="form.stationName" label="车站名" placeholder="" />
+      <van-field v-model="form.plateNum" label="车牌号" placeholder="" />
+      <van-field v-model="form.reachDate" label="来郑日期" placeholder="" />
+    </van-cell-group>
 
-            </div>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="item-content">
-          <div class="item-inner">
-            <div class="item-title">来郑日期</div>
-            <div class="item-input">
-              <input type="text" v-model="form.reachDate">
-
-            </div>
-          </div>
-        </div>
-      </li>
-    </ul>
     <div class="footer">
       <div class="add" @click="handleAdd" >添加</div>
       <div class="alter" @click="handleUpdate" >进入</div>
     </div>
-    <div class="title">历史地点</div>
-    <div class="site-list">
-      <div class="item" :class="{select:item.select}" v-for="(item,i) in sites" >
-        <div class="site-name" @click="handleSelect(item,i)">{{item.docTitle+'-'+item.stationName}}</div>
-        <div class="delete" @click="handleDelete(i)">删除</div>
+
+    <van-cell-group title="历史地点">
+      <div class="site-list">
+        <div class="item" :class="{select:item.select}" v-for="(item,i) in sites" >
+          <div class="site-name" @click="handleSelect(item,i)">{{item.docTitle+'-'+item.stationName}}</div>
+          <div class="delete" @click="handleDelete(i)">删除</div>
+        </div>
       </div>
-    </div>
+    </van-cell-group>
+
 
   </div>
 </template>
@@ -98,7 +52,9 @@ export default {
     // 增加地点
     handleAdd(){
       // 保存输入记录
-      this.sites[this.currentItem].select = false
+      if( this.sites[this.currentItem]){
+        this.sites[this.currentItem].select = false
+      }
       this.sites.push({...this.form})
       localStorage.setItem('sites',JSON.stringify(this.sites))
 
@@ -148,67 +104,10 @@ export default {
 </script>
 <style lang="scss" scoped>
 .form{
-  background: #fff;
+  background: #f7f8fa;
   height: 100%;
   overflow: auto;
-  .title{
-    padding: 30px 30px 15px;
-    text-align: center;
-  }
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: block;
-    color: #3d4145;
-    font-size: 0.7rem;
 
-    .item-content {
-      padding:0 0.75rem;
-      min-height: 2.2rem;
-      display: flex;
-      .item-inner{
-        padding: 0;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-        display: flex;
-        padding: 0;
-        width: 100%;
-        min-height: 2.2rem;
-        overflow: hidden;
-
-        align-items: center;
-        .item-title{
-          line-height: 1.5;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          vertical-align: top;
-          width: 25%;
-          flex-shrink: 0;
-          margin: 4px 0;
-        }
-        .item-input{
-          width: 100%;
-          margin-top: -0.4rem;
-          margin-bottom: -0.35rem;
-          flex: 1;
-          input {
-            appearance: none;
-            border: none;
-            background: 0 0;
-            border-radius: 0;
-            box-shadow: none;
-            display: block;
-            padding: 0 0 0 0.25rem;
-            margin: 0;
-            width: 100%;
-            height: 2.15rem;
-            outline: 0;
-          }
-        }
-      }
-    }
-
-  }
   .footer{
     display: flex;
     div{

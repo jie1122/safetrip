@@ -70,5 +70,8 @@ function watermark(t1,t2,t3){
   
   document.body.appendChild(_temp);
 }
-
-export default watermark
+// 移除水印
+function removeMark(){
+  document.body.removeChild(document.body.lastChild)
+}
+export  {watermark , removeMark}
