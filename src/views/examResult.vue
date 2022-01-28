@@ -24,7 +24,7 @@
         </div>
       </div>
     </div>
-    <div class="listbox" v-for="item in list">
+    <div class="listbox" v-for="(item,index) in list" :key="index">
       <div class="title">个人信息</div>
       <div class="van-cell-group van-hairline--top-bottom">
         <div class="van-cell">
@@ -69,8 +69,28 @@ export default {
     return {
       list:[
         {
-          getTime:'2022-01-05 15:45:01',
-          resTime:'2022-01-05 22:37:07'
+          getTime:'2022-01-25 11:03:08',
+          resTime:'2022-01-26 02:38:21'
+        },
+        {
+          getTime:'2022-01-16 14:43:08',
+          resTime:'2022-01-17 02:55:21'
+        },
+        {
+          getTime:'2022-01-14 11:05:46',
+          resTime:'2022-01-14 21:25:37'
+        },
+        {
+          getTime:'2022-01-11 09:52:13',
+          resTime:'2022-01-11 15:10:44'
+        },
+        {
+          getTime:'2022-01-09 15:45:08',
+          resTime:'2022-01-10 04:55:03'
+        },
+        {
+          getTime:'2022-01-06 09:45:01',
+          resTime:'2022-01-06 15:16:57'
         },
         {
           getTime:'2021-11-15 15:48:01',
