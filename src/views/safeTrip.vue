@@ -59,6 +59,7 @@ export default {
 .result{
   height: 100%;
   background-color: #f4f5f6;
+  line-height: 1.5;
   /* 上半部分，绿色 */
   .finish-header {
     background-color: #56c61e;
@@ -66,10 +67,10 @@ export default {
     position: relative;
     width: 100%;
     /* height: 30%; */
-    padding: 1.2rem 0;
+    padding: 24px 0;
     text-align: center;
     color: #fff;
-    font-size: 1rem;
+    font-size:20px;
     .complete-info {
       font-weight: bold;
       overflow-wrap: break-word;
@@ -100,8 +101,8 @@ export default {
   }
   /* 下半部分，内容 */
   .content-block {
-    margin: 1.75rem 0;
-    padding: 0 .75rem;
+    margin: 35px 0;
+    padding: 15px;
     color: #6d6d72;
     .specialType-info {
       /* display: none; */

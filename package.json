@@ -7,12 +7,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "lottie-web": "^5.9.6",
     "vant": "^3.4.0",
+    "vconsole": "^3.14.6",
     "vue": "^3.2.25",
     "vue-router": "^4.0.12"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.0.0",
+    "postcss-px-to-viewport": "^1.1.1",
     "sass": "^1.45.2",
     "vite": "^2.7.2",
     "vite-plugin-style-import": "^1.2.0"
