@@ -67,48 +67,7 @@
 export default {
   data() {
     return {
-      list:[
-        {
-          getTime:'2022-01-25 11:03:08',
-          resTime:'2022-01-26 02:38:21'
-        },
-        {
-          getTime:'2022-01-16 14:43:08',
-          resTime:'2022-01-17 02:55:21'
-        },
-        {
-          getTime:'2022-01-14 11:05:46',
-          resTime:'2022-01-14 21:25:37'
-        },
-        {
-          getTime:'2022-01-11 09:52:13',
-          resTime:'2022-01-11 15:10:44'
-        },
-        {
-          getTime:'2022-01-09 15:45:08',
-          resTime:'2022-01-10 04:55:03'
-        },
-        {
-          getTime:'2022-01-06 09:45:01',
-          resTime:'2022-01-06 15:16:57'
-        },
-        {
-          getTime:'2021-11-15 15:48:01',
-          resTime:'2021-11-15 23:35:07'
-        },
-        {
-          getTime:'2021-11-11 15:52:46',
-          resTime:'2021-11-11 20:24:34'
-        },
-        {
-          getTime:'2021-08-24 20:04:33',
-          resTime:'2021-08-25 17:04:36'
-        },
-        {
-          getTime:'2021-08-07 17:07:53',
-          resTime:'2021-08-08 10:02:43'
-        },
-      ],
+      list:[],
     }
   },
   computed:{
@@ -125,15 +84,36 @@ export default {
   },
   created(){
     document.title = '核酸检测结果查询'
-    let query = this.$route.query
-    if (query.getTime&&query.resTime) {
-      this.list.unshift({
-      ...this.$route.query
-      })
+    for (let i = 0; i < 8; i++) {
+      let timeObj =  this.geneTime(i*2+1)
+      this.list.push(timeObj)
     }
-
   },
-  methods: {},
+  methods: {
+    geneTime(days){
+      let getTimeObj = new Date()
+      // 采样时间限制在8点到20点之间
+      getTimeObj.setDate(getTimeObj.getDate() - days)
+      getTimeObj.setHours( this.getRandomInt( 8, 21))
+      getTimeObj.setMinutes( this.getRandomInt( 0, 60))
+      getTimeObj.setSeconds( this.getRandomInt( 0, 60))
+
+      // 结果时间为采样时间后推3-9小时
+      let delayMs = this.getRandomInt(9*60*60*1000,3*60*60*1000)
+      let resTimeObj = new Date(getTimeObj.getTime() + delayMs) 
+
+      return{
+        getTime: this.$formatTime(getTimeObj),
+        resTime:this.$formatTime(resTimeObj),
+      }
+    },
+
+    getRandomInt(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min)) + min; //不含最大值，含最小值
+    }
+  },
 }
 </script>
 <style lang="scss" scoped>

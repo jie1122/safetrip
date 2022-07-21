@@ -36,6 +36,7 @@ export default {
   data() {
     return {
       form:{
+        select:false,
         docTitle:'',
         welcom:'',
         plateNum:'',//车牌号
@@ -129,7 +130,7 @@ export default {
   }
 
   .site-list{
-    font-size: 0.7rem;
+    font-size:14px;
 
     .item{
       display: flex;

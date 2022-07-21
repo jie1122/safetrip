@@ -6,12 +6,12 @@
       <van-field v-model="form.idCard" label="证件号" placeholder="只需后四位" />
     </van-cell-group>
 
-    <van-cell-group title="时间" inset>
+    <!-- <van-cell-group title="时间" inset>
 
       <van-field v-model="form.getTime"  readonly label="采样时间" @click="showGetTime=show=true" placeholder="" />
       <van-field v-model="form.resTime" readonly label="检测时间" @click="showResTime=show=true" placeholder="" />
 
-    </van-cell-group>
+    </van-cell-group> -->
     <div style="margin:20px;">
 
       <van-button type="primary" round  size="large" @click="toResult">查看结果</van-button>
