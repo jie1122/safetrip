@@ -1,9 +1,9 @@
 
 <template>
-  <van-nav-bar title="地点信息" />
 
   <div class="form" >
-
+    
+    <van-nav-bar title="地点信息" />
     <van-cell-group title="编辑地点">
       <van-field v-model="form.siteName" label="地点名" placeholder="" />
       <van-field v-model="form.name" label="人名" placeholder="" />

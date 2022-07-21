@@ -152,7 +152,7 @@
             </div>
             <div class="travalBox-right">
               <div class="common-label">疫苗接种</div>
-              <div><div class="span-blue">已接种 1 针剂</div></div>
+              <div><div class="span-blue">已接种 2 针剂</div></div>
             </div>
           </div>
         </div>
