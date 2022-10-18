@@ -152,7 +152,7 @@
             </div>
             <div class="travalBox-right">
               <div class="common-label">疫苗接种</div>
-              <div><div class="span-blue">已接种 1 针剂</div></div>
+              <div><div class="span-blue">已接种 2 针剂</div></div>
             </div>
           </div>
         </div>
@@ -161,9 +161,44 @@
         <!-- <audio loop="loop" id="mp3Btn" style="visibility: hidden;"><source src="[object AudioBufferSourceNode]"></audio> -->
       </div>
       <div class="button-group">
-        <van-button plain type="primary" size="large" round="" @click="toTravel"
-          >查看行程卡</van-button
-        >
+        <div id="launch-btn" >
+
+          <button class="btn" @click="toTravel">查看行程卡</button> </div>
+      </div>
+      <div class="trave-wrapper">
+        <div class="bottom-card-wrapper">
+          <div data-v-1f61d2dc="" class="btnsItem">
+            <div data-v-1f61d2dc="" class="item"
+              onclick="location.href='https://virus-cabin.z.digitalcnzz.com/covidBackZZ/#/reg?param=37967DFFF2E75DBB3CBCDFE6306436DA027110C3CBD7B840574650931E565C60968E0BB69D38F8ED7588E5F09A8DDCA1AD4E6E997DE5C3C2EF95817AB3F0378E16E73B55925EC4A50823D254BA730F1A694606C1842C9BB8D0FD86D2E263C74B4392C305349DD4C66A8CD83399574639DEF473022784D0D567BEDA3C28353118B1F7CE3335BDBDF217BCC59202D7DFBCA11DEA45BD7917A6F0603D81BB1133225B0BA7282EF412A29938697F521E6105636438436210E6B95D50E5A549E277'"
+            >
+              <img data-v-1f61d2dc="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAF8AAABeCAMAAAByzjhiAAAAflBMVEUAAAAR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwR0cwl1DvEAAAAKXRSTlMAYNBwwDAkQBiwIPAPTvygO9odC6kr6btam2gTjoV8XTMH9ePItpRIYzOF2YYAAAISSURBVGje7drbjqJAFIXh1aANKiBHz9raHmbW+7/gdFdAYJqiKmhdOFPf3U7Mb4IxbELhm7fLJxL5/oial9CJm/NtOZJYrkNA8EfslQco+Z8kZ/59XLLXZSo+daaCkwHCSoyrcgoSKpx9ADmVdoDwJqa3clpTaQJkVIuCjv42oloGnxrCjn5IDT6m1LDp6G+oYYp3anA7+q7t277t277t277t2/5r9lNq+Ojor6ghxZYajh39MTVsgQWVEnT04VBpobdHhp19L9K7rjv1r1sVxRij9Fv1BQcIocMeFw93E5Jz3B2vEaWikYdKGnsSsY+m0P3VmrNiLFEEsKzHFbljSl4ApxnNmZ2Q0qTUeD+LaE6UAWFCU5IQlvW4QH6by2T3R33eiHLRMsZd3rq/x7d5ZR2i6fTmCh6+HNgvcu/B1n6yitiwR61eeQLgY+h+dWZT5KM2Yskfvh9mbIs7+8P324BtXmdfcz8f3Nd8vvjP+jlLWzP96Xwi7GGkX3uhfvzc/o8/fvrsvsumOZ7dRzgZVa4uIKzc2qYY2pdz2HQw3GdmuO+/Wj8x1o+9Lzsa68/4zfb/nX4xFjJD/bzavk5G+nWwqMbh75d7++O+fkoN4fB+RrVoO7yPK5XWeKCfLqiQBO3zFd39RNLH1GGvpd86H/Lp/70/vEP2GLSAEK7lx1Runux8y2YxE6qrt/9xhS5j/AE5+m++jR+RigAAAABJRU5ErkJggg==" class="img">
+              <div data-v-1f61d2dc="" class="text"> 核酸检测码 </div>
+            </div>
+          </div>
+          <div data-v-1f61d2dc="" class="btnsItem">
+            <div data-v-1f61d2dc="" class="item" 
+              onclick="location.href='https://i2.hnzwfw.gov.cn/fever-treatment/#/backTownList'"
+            >
+              <img data-v-1f61d2dc="" src="data:image/png;base64,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" class="img">
+              <div data-v-1f61d2dc="" class="text">  来豫报备  </div>
+            </div>
+          </div>
+          <div data-v-1f61d2dc="" class="btnsItem">
+            <div data-v-1f61d2dc="" class="item"
+              onclick="location.href='https://hscjd.jianguan.henan.gov.cn/hsinfo/hspoint.html'"            
+            >
+              <img data-v-1f61d2dc="" src="data:image/png;base64,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" class="img">
+              <div data-v-1f61d2dc="" class="text">  采样点查询  </div>
+            </div>
+          </div>
+          <div data-v-1f61d2dc="" class="btnsItem">
+            <div data-v-1f61d2dc="" class="item">
+              <img data-v-1f61d2dc="" src="data:image/png;base64,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" class="img">
+              <div data-v-1f61d2dc="" class="text">  出行服务  </div>
+            </div>
+          </div>
+          
+        </div>
       </div>
     </div>
   </div>
@@ -467,7 +502,7 @@ export default {
           padding: 10px 0;
         }
         .common-label {
-          font-size: 16px;
+          font-size: 18px;
           font-family: Source Han Sans CN;
           font-weight: 700;
           color: #4d4d4d;
@@ -486,16 +521,49 @@ export default {
   .button-group {
     margin: 16px 0;
     padding: 0 35px;
-    .van-button--large {
-      height: 44px;
-    }
-    .van-button--plain.van-button--primary {
+    #launch-btn {
       color: #07c160;
-      border: 1px solid #07c160;
-      font-size: 18px;
-      font-family: PingFangSC-Regular, PingFang SC;
-      font-weight: 400;
-      color: #2bc150;
+      border-radius: 9999;
+      width: 100%;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .btn {padding: 12px; background-color: #fff; font-size: 16px; color: #07c160; border-radius: 29999px; width: 100%; height: 100%; border: 1px solid #07c160; display: flex; align-items: center; justify-content: center;}    
+    }
+  }
+  .trave-wrapper {
+    margin: 16px 0;
+    .bottom-card-wrapper{
+      margin-top: 16px;
+      display: flex;
+      width: 100%;
+      flex-flow: row wrap;
+      background: #fff;
+      border-radius: 7px;
+      padding: 14px 0 18px;      
+    }
+    .btnsItem{
+      display: inline-block;
+      flex: 1;
+      .item{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;    
+        .img{
+          width: 33px;
+          height: 33px;   
+        }    
+        .text{
+          margin-top: 7px;
+          font-size: 12px;
+          font-family: PingFang SC;
+          font-weight: 700;
+          color: #4d4d4d;          
+        }
+      }
     }
   }
 }
