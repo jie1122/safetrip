@@ -17,7 +17,7 @@
 
     <van-cell-group title="历史地点">
       <div class="site-list">
-        <div class="item" :class="{select:item.select}" v-for="(item,i) in newSites" >
+        <div class="item" :class="{select:item.select}" v-for="(item,i) in newSites" :key="i">
           <div class="site-name" @click="handleSelect(i)">{{item.siteName}}</div>
           <div class="delete" @click="handleDelete(i)">删除</div>
         </div>
@@ -47,19 +47,16 @@ export default {
   methods: {
     // 增加地点
     handleAdd(){
-      // 保存输入记录
-      if( this.newSites[this.currentItem]){
-        this.newSites[this.currentItem].select = false
-      }
-      this.newSites.push({...this.form})
+      this.newSites.push(this.form)
+      // 选中最后添加的地点
+      this.handleSelect(this.newSites.length-1)
       localStorage.setItem('newSites',JSON.stringify(this.newSites))
 
     },
     // 修改地点并进入结果页
     handleUpdateAndTo(){
 
-      this.newSites[this.currentItem] = {...this.form}
-      console.log(this.form)
+      this.newSites[this.currentItem] = this.form
       localStorage.setItem('newSites',JSON.stringify(this.newSites))
       this.$router.push({
           path:'./siteCode',
